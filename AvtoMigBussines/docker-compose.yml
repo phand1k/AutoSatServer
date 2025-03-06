@@ -1,0 +1,41 @@
+
+services:
+  api:
+    build: .
+    container_name: aspnetapi
+    ports:
+      - "5000:5000"
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=mssql;Database=AvtoMigBussines;User Id=sa;Password=Ohavizz11_;TrustServerCertificate=True;"
+    depends_on:
+      - mssql
+    networks:
+      - aspnetwithwaha
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:latest
+    container_name: mssql
+    environment:
+      SA_PASSWORD: "Ohavizz11_"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    networks:
+      - aspnetwithwaha
+
+  waha:
+    image: devlikeapro/waha
+    container_name: waha
+    ports:
+      - "3000:3000"
+    networks:
+      - aspnetwithwaha
+
+volumes:
+  mssql_data:
+
+networks:
+  aspnetwithwaha:
+    external: true
