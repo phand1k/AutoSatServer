@@ -169,7 +169,7 @@ builder.Services.AddHostedService(provider => provider.GetRequiredService<Notifi
 if (builder.Environment.IsDevelopment())
 {
     builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 }
 
 else if (builder.Environment.IsProduction())

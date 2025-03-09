@@ -194,7 +194,7 @@ namespace AvtoMigBussines.Controllers
                 return BadRequest("Организация не найдена для текущего пользователя.");
             }
 
-            var inviteUrl = "https://gchelper.kz/invite-user.html?organizationId=" + user.Organization.Number;
+            var inviteUrl = "https://autosat.kz/invite-user.html?organizationId=" + user.Organization.Number;
             return Ok(inviteUrl);
         }
 

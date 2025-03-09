@@ -39,11 +39,11 @@ namespace AvtoMigBussines.Data
         public DbSet<AspNetUser> AspNetUsers { get; set; }
         public DbSet<ClientOrganization> ClientOrganizations { get; set; }
 
-        //string filePath = "C:\\Users\\nursu\\source\\repos\\AvtoMigBussines\\AvtoMigBussines\\all-vehicles-model@public.csv";
+        string filePath = "all-vehicles-model@public.csv";
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            /*HashSet<string> makes = new HashSet<string>();
+            HashSet<string> makes = new HashSet<string>();
             
             using (StreamReader reader = new StreamReader(filePath))
             {
@@ -102,7 +102,7 @@ namespace AvtoMigBussines.Data
             }
 
             builder.Entity<ModelCar>().HasData(ModelCars);
-            */
+            
             
             builder.Entity<PaymentMethod>().HasData(
                 new PaymentMethod
@@ -149,7 +149,7 @@ namespace AvtoMigBussines.Data
                     NormalizedName = "Директор"
                 }
                 );
-
+            
             base.OnModelCreating(builder);
         }
     }
